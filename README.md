@@ -1,3 +1,3 @@
 # vue3-principle
 
-Vue3 工作原理
+Practice of this book: [《Vue.js 设计与实现》](https://www.ituring.com.cn/book/2953)
