@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>renderer test</title>
+  </head>
+  <body>
+    <script src="renderer.js"></script>
+
+    <script>
+      const vnode = {
+        tag: 'h1',
+        props: {
+          onClick: () => alert('Hello, world!'),
+        },
+        children: 'Click Me Again',
+      }
+
+      renderer(vnode, document.body)
+
+      function MyComponent() {
+        return {
+          tag: 'button',
+          props: {
+            onClick: () => console.log('Hello, mf... 😄'),
+          },
+          children: 'I am a button',
+        }
+      }
+
+      const vnode2 = {
+        tag: MyComponent,
+      }
+      renderer(vnode2, document.body)
+
+      const MyComponent2 = {
+        render() {
+          return {
+            tag: 'h2',
+            props: {
+              onClick: () => console.log('Hello, this is component2...'),
+            },
+            children: 'I am component 2',
+          }
+        },
+      }
+
+      const vnode3 = {
+        tag: MyComponent2,
+      }
+      renderer(vnode3, document.body)
+    </script>
+  </body>
+</html>
